@@ -1,0 +1,86 @@
+<div class="container-fluid">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 offset-1">
+        <div class="card">
+          <div class="card-body">
+            Datos del empleado
+            <form #f="ngForm" (ngSubmit)="AddEmployee(f)">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label for="brm" class="form-label">BRM</label>
+                    <input *ngIf="employeeUpdate==null" type="text" ngModel name="brm" class="form-control" id="brm" placeholder="Ingresa un BRM">
+                    <input *ngIf="employeeUpdate!=null" type="text" ngModel={{employeeUpdate.brm}} name="brm" class="form-control" id="brm">
+                  </div>
+                  <div class="mb-3">
+                    <label for="name" class="form-label">Nombre</label>
+                    <input *ngIf="employeeUpdate==null" type="text" ngModel name="name" class="form-control" id="name" placeholder="Ingresa el Nombre">
+                    <input *ngIf="employeeUpdate!=null"  type="text" ngModel={{employeeUpdate.name}} name="name" class="form-control" id="name" >
+                  </div>
+                 
+                </div>
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label for="photo" class="form-label">Foto</label>
+                    <input *ngIf="employeeUpdate==null" type="file" accept="image/png, image/jpeg" ngModel name="photo" class="form-control" id="photo" >
+                    <input *ngIf="employeeUpdate!=null"  type="file" accept="image/png, image/jpeg" ngModel={{employeeUpdate.photo}} name="photo" class="form-control" id="photo" >
+                  </div>
+                  <div class="mb-3">
+                    
+                    <label for="photo" class="form-label">Puesto</label>
+                    <select *ngIf="employeeUpdate==null" ngModel id="post" name="post" class="form-select" aria-label="Default select example">
+                      <option selected disabled>Selecciona un Puesto</option>
+                      <option value="Desarrollador FrontEnd JR">Desarrollador FrontEnd JR</option>
+                      <option value="Desarrollador FrontEnd">Desarrollador FrontEnd</option>
+                      <option value="Desarrollador BackEnd JR">Desarrollador BackEnd JR</option>
+                      <option value="Desarrollador BackEnd">Desarrollador BackEnd</option>
+                    </select>
+                    <select *ngIf="employeeUpdate!=null" ngModel={{employeeUpdate.post}} id="post" name="post" class="form-select" aria-label="Default select example">
+                      <option  disabled>Selecciona un Puesto</option>
+                      <option value="Desarrollador FrontEnd JR">Desarrollador FrontEnd JR</option>
+                      <option value="Desarrollador FrontEnd">Desarrollador FrontEnd</option>
+                      <option value="Desarrollador BackEnd JR">Desarrollador BackEnd JR</option>
+                      <option value="Desarrollador BackEnd">Desarrollador BackEnd</option>
+                    </select>
+                  </div>
+                  
+                </div>
+                <button type="submit" class="btn">Agregar</button>
+                </div>
+              </div>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+  </div>
+  <div class="row">
+    <div class="col-md-8 offset-2">
+      <h1>Empleados</h1>
+      <table class="table table-borderless">
+        <thead>
+          <tr>
+            <th scope="col">BRM</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Foto del Empleado</th>
+            <th scope="col">Puesto</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody *ngIf="arrayEmployes">
+          <tr *ngFor="let employee of arrayEmployes">
+            <th scope="row">{{employee.brm}}</th>
+            <td>{{employee.name}}</td>
+            <td>{{employee.photo}}</td>
+            <td>{{employee.post}}</td>
+            <td><a (click)="delete(employee.id)">Borrar</a> / <a (click)="update(employee.id)">Editar</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+

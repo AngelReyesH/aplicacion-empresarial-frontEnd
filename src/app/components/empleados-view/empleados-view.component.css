@@ -1,0 +1,25 @@
+.card,table{
+    margin-top: 3%;
+}
+.btn{
+    color: white;
+    background-color: orange;
+    border-radius: 15px;
+    width: 10%;
+    text-align: center;
+    margin-left: 45%;
+}
+tr{
+    border-bottom: 1px solid gray;
+}
+h1{
+    text-align: center;
+    margin-top: 3%;
+}
+a{
+    cursor: pointer;
+
+}
+a:hover{
+    font-weight: bold;
+}

@@ -11,12 +11,8 @@ import {Md5} from 'ts-md5/dist/md5';
 export class LoginComponent implements OnInit {
 
   constructor(private service: ServiceGeneralService) { }
-hola="holis";
-textencriptado;any;
-textdesencriptado:any;
+
   ngOnInit() {
-this.textencriptado= Md5.hashStr(this.hola);
-this.textdesencriptado = Md5.hashStr("AngelReyes01");
   }
   
   login(data: NgForm){

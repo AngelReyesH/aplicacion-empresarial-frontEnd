@@ -1,0 +1,12 @@
+.col-md-4{
+    text-align: center;
+    -webkit-box-shadow: -2px 2px 15px -8px #000000; 
+box-shadow: -2px 2px 15px -8px #000000;
+margin-top: 3%;
+}
+.btn{
+color:white;
+background-color: orange;
+border-radius: 25px;
+margin-bottom: 3%;
+}

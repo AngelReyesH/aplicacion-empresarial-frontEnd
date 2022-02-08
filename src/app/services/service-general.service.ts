@@ -8,21 +8,24 @@ export class ServiceGeneralService {
 
   constructor(private http: HttpClient) { }
 
-  private urlHerokuEmpresarial = "https://empresarial-b.herokuapp.com/api/v1/employees";
+  private urlHerokuEmpresarial = "https://empresarial-b.herokuapp.com/api/v1";
 
   getEmployees(){
-    return this.http.get(this.urlHerokuEmpresarial);
+    return this.http.get(this.urlHerokuEmpresarial+"/employees");
   } 
   getEmployeesById(id){
-    return this.http.get(this.urlHerokuEmpresarial+"/"+id);
+    return this.http.get(this.urlHerokuEmpresarial+"/employees/"+id);
   }
   addEmployee(body:any){
-    return this.http.post(this.urlHerokuEmpresarial,body);
+    return this.http.post(this.urlHerokuEmpresarial+"/employees",body);
   }
   deleteEmployee(id:any){
-    return this.http.delete(this.urlHerokuEmpresarial+"/"+id);
+    return this.http.delete(this.urlHerokuEmpresarial+"/employees/"+id);
   }
   updateEmployee(body:any,id:any){
-    return this.http.put(this.urlHerokuEmpresarial+"/"+id,body);
+    return this.http.put(this.urlHerokuEmpresarial+"/employees/"+id,body);
+  }
+  getUserByUserName(user:any){
+    return this.http.get(this.urlHerokuEmpresarial+"/user/login?user="+user);
   }
 }

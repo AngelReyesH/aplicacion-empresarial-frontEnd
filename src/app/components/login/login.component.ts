@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
   constructor(private service: ServiceGeneralService) { }
 
   ngOnInit() {
+    localStorage.removeItem("user");
   }
   
   login(data: NgForm){
@@ -20,7 +21,7 @@ export class LoginComponent implements OnInit {
         console.log(response);
         if((data.value.user==response.userName || data.value.user==response.email)&&Md5.hashStr(data.value.password)==response.password){
           alert("Login Exitoso");
-
+          localStorage.setItem("user",response);
         }else{
           alert("La Combinacion de usuario y password son Incorrectas!");
 

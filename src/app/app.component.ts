@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,15 +8,18 @@ import { Router } from '@angular/router';
 })
 export class AppComponent implements OnInit{
 
-  constructor(private router:Router){}
+  constructor(private router:Router,private route: ActivatedRoute){}
 
   title = 'aplicacionEmpresarial';
   user:any;
+  userId:any;
   ngOnInit() {
     this.user=localStorage.getItem("user");
+    this.userId=this.route.snapshot.paramMap.get(this.user.id);
   }
 
   setLink(link:any){
-    this.router.navigate(['/'+link,{id:this.user.id}])
+    this.router.navigate(['/'+link,{id:this.userId}])
+    console.log("/"+link)
   }
 }

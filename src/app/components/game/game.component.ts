@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ServiceGeneralService } from 'src/app/services/service-general.service';
 
 @Component({
   selector: 'app-game',
@@ -8,7 +10,7 @@ import { NgForm } from '@angular/forms';
 })
 export class GameComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service: ServiceGeneralService,private router:Router) { }
   
   player:any;
   player1:any;
@@ -16,6 +18,11 @@ export class GameComponent implements OnInit {
   texto:any;
   reset:any;
   ngOnInit() {
+    var user=this.service.getUser();
+    if(user.perfil=="empleado"){
+      this.router.navigate(["/home"]);
+      alert("su perfil no tiene permisos");
+    }
     this.player={x0y0:"",x1y0:"",x2y0:"",x0y1:"",x1y1:"",x2y1:"",x0y2:"",x1y2:"",x2y2:""};
 
   }

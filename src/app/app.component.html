@@ -1,31 +1,30 @@
 <!-- As a heading -->
 
-<nav class="navbar navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/home">Aplicacion Empresarial</a>
+    <a class="navbar-brand" href="#">Aplicacion Empresarial</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" href="/home">Inicio</a>
+          <a class="nav-link active" aria-current="page" href="/home">Inicio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" >Empleados</a>
-          <a *ngIf="user=='empledo'"  (click)="setLink('empleados')" class="nav-link" routerLinkActive="true">Empleados</a>
+          <a   (click)="setLink('empleados')" class="nav-link" routerLinkActive="true">Empleados</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" >Juego</a>
-          <a *ngIf="user=='jugador'" (click)="setLink('game')" class="nav-link" routerLinkActive="true">Juego</a>
+          <a  (click)="setLink('game')" class="nav-link" routerLinkActive="true">Juego</a>
 
         </li>
          <li class="nav-item">
           <a class="nav-link" href="/login">salir</a>
         </li>
-      
+       
+        
       </ul>
-     
+      
     </div>
   </div>
 </nav>

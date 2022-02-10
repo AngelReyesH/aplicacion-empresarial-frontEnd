@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ServiceGeneralService } from './services/service-general.service';
 
 @Component({
   selector: 'app-root',
@@ -8,19 +9,19 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class AppComponent implements OnInit{
 
-  constructor(private router:Router,private route: ActivatedRoute){}
+  constructor(private router:Router,private service: ServiceGeneralService){}
 
   title = 'aplicacionEmpresarial';
  user:any;
   ngOnInit() {
-   var ss=JSON.parse(localStorage.getItem("user"));
-   this.user=ss.perfil;
+   
+   this.user={"perfil":"none"};
+ 
   }
 
   setLink(link:any){
-    var ss=JSON.parse(localStorage.getItem("user"));
-    var userId=this.route.snapshot.paramMap.get(ss.id);
-    this.router.navigate(['/'+link,{id:userId}])
-    console.log("/"+link)
+    this.user=this.service.getUser();
+    this.router.navigate(['/'+link+"/"+this.user.id],{skipLocationChange: true});
+    console.log("/"+link);
   }
 }

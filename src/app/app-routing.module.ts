@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { EmpleadosViewComponent } from './components/empleados-view/empleados-view.component';
 import { GameComponent } from './components/game/game.component';
+import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
@@ -11,13 +12,18 @@ const routes: Routes = [
     component: EmpleadosViewComponent
   },
   {
-    path: 'login/:login',
+    path: 'login',
     component: LoginComponent
   },
   {
-    path: 'game',
+    path: 'home',
+    component: HomeComponent
+  },
+  {
+    path: 'game/:id',
     component: GameComponent
-  },{
+  },
+  {
     path: '**',
     redirectTo: 'login',
     pathMatch: 'full'

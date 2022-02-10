@@ -8,6 +8,7 @@ import { EmpleadosViewComponent } from './components/empleados-view/empleados-vi
 import { FormsModule }   from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import { GameComponent } from './components/game/game.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { GameComponent } from './components/game/game.component';
     EmpleadosViewComponent,
     LoginComponent,
     LoginComponent,
-    GameComponent
+    GameComponent,
+    HomeComponent
   
   ],
   imports: [

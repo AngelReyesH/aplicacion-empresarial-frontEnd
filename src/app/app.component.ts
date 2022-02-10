@@ -11,9 +11,9 @@ export class AppComponent implements OnInit{
   constructor(private router:Router,private route: ActivatedRoute){}
 
   title = 'aplicacionEmpresarial';
- 
+ user:any;
   ngOnInit() {
-   
+   this.user=localStorage.getItem("user");
   }
 
   setLink(link:any){

@@ -7,13 +7,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EmpleadosViewComponent } from './components/empleados-view/empleados-view.component';
 import { FormsModule }   from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
+import { GameComponent } from './components/game/game.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EmpleadosViewComponent,
     LoginComponent,
-    LoginComponent
+    LoginComponent,
+    GameComponent
   
   ],
   imports: [

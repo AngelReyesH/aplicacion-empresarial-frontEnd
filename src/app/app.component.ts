@@ -13,11 +13,13 @@ export class AppComponent implements OnInit{
   title = 'aplicacionEmpresarial';
  user:any;
   ngOnInit() {
-   this.user=localStorage.getItem("user");
+   var ss=JSON.parse(localStorage.getItem("user"));
+   this.user=ss.perfil;
   }
 
   setLink(link:any){
-    var userId=this.route.snapshot.paramMap.get(localStorage.getItem("user"));
+    var ss=JSON.parse(localStorage.getItem("user"));
+    var userId=this.route.snapshot.paramMap.get(ss.id);
     this.router.navigate(['/'+link,{id:userId}])
     console.log("/"+link)
   }

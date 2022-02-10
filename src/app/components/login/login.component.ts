@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
         console.log(response);
         if((data.value.user==response.userName || data.value.user==response.email)&&Md5.hashStr(data.value.password)==response.password){
           alert("Login Exitoso");
-          localStorage.setItem("user",response.perfil);
+          localStorage.setItem("user",JSON.stringify(response));
           this.router.navigate(['/home'])
         }else{
           alert("La Combinacion de usuario y password son Incorrectas!");

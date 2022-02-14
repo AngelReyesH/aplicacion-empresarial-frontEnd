@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ServiceGeneralService } from 'src/app/services/service-general.service';
 
 @Component({
@@ -9,11 +10,19 @@ import { ServiceGeneralService } from 'src/app/services/service-general.service'
 })
 export class EmpleadosViewComponent implements OnInit {
 
-  constructor(private service: ServiceGeneralService) { }
+  constructor(private service: ServiceGeneralService,private router:Router) { }
   arrayEmployes:any;
   employeeUpdate:any;
   ngOnInit() {
-    this.getEmployees();
+    var user=this.service.getUser();
+    if(user.perfil=="jugador"){
+      this.router.navigate(["/home"]);
+      alert("su perfil no tiene permisos");
+
+    }else{
+      this.getEmployees();
+    }
+    
   }
 
   getEmployees(){

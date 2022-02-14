@@ -28,4 +28,7 @@ export class ServiceGeneralService {
   getUserByUserName(user:any){
     return this.http.get(this.urlHerokuEmpresarial+"/user/login?user="+user);
   }
+  getUser(){
+    return JSON.parse(localStorage.getItem("user"));
+  }
 }

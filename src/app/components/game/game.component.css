@@ -1,0 +1,28 @@
+.space{
+    height: 150px;
+    width: 150px;
+    margin-top: 10%;
+    font-size: xx-large;
+}
+.title, .col-md-10{
+    text-align: center;
+    margin-top: 3%;
+}
+input{
+    margin-left: 5%;
+}
+.btn{
+    border-radius: 25px;
+    color:white;
+    background-color: orange;
+    margin-top: 3%;
+}
+.mensaje{
+    border: 1px solid gray;
+    border-radius: 15px;
+}
+h6{
+    text-align: center;
+    margin-top: 4%;
+   
+}
